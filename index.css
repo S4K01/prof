@@ -1,0 +1,113 @@
+:root {
+  --font-main: "Space Grotesk", sans-serif;
+  --transition-speed: 0.5s;
+}
+
+/* LIGHT MODE */
+[data-theme="light"] {
+  --bg-color: #f4f4f5;
+  --surface-color: #e4e4e7;
+  --text-primary: #09090b;
+  --text-secondary: #71717a;
+  --accent-color: #0ea5e9;
+  --border-color: #d4d4d8;
+  --loader-bg: #ffffff;
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+  --bg-color: #18181b;
+  --surface-color: #27272a;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --accent-color: #38bdf8;
+  --border-color: #3f3f46;
+  --loader-bg: #09090b;
+}
+
+/* BLACK MODE (OLED) */
+[data-theme="black"] {
+  --bg-color: #000000;
+  --surface-color: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --accent-color: #22d3ee;
+  --border-color: #1a1a1a;
+  --loader-bg: #000000;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition:
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+  cursor: none; /* Hide default cursor */
+  overflow-x: hidden;
+}
+
+/* Disable custom cursor on touch devices to prevent sticky hover issues */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  .cursor-dot {
+    display: none !important;
+  }
+}
+
+/* Custom Cursor Animation */
+.cursor-dot {
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    background-color 0.3s ease;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+body.hovering .cursor-dot {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  mix-blend-mode: difference;
+}
+
+/* Split Panel Preloader Styles */
+.preloader-panel {
+  background-color: var(--loader-bg);
+  transition: background-color var(--transition-speed) ease;
+}
+
+/* Magnetic underline effect */
+.magnetic-btn::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+.magnetic-btn:hover::after {
+  width: 100%;
+}
+
+/* Hide scrollbar for clean look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}

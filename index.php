@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S4K | Full Stack Engineer</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: 'var(--bg-color)',
+                        surface: 'var(--surface-color)',
+                        primary: 'var(--text-primary)',
+                        secondary: 'var(--text-secondary)',
+                        accent: 'var(--accent-color)',
+                        borderline: 'var(--border-color)',
+                        loader: 'var(--loader-bg)'
+                    },
+                    fontFamily: {
+                        space: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    transitionProperty: {
+                        'colors': 'background-color, border-color, color, fill, stroke',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-space antialiased selection:bg-accent selection:text-base">
+
+    <div class="cursor-dot fixed top-0 left-0 w-3 h-3 bg-accent rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+
+    <div class="fixed top-6 right-6 md:top-8 md:right-8 flex gap-3 z-50 bg-surface px-4 py-2 rounded-full border border-borderline shadow-lg backdrop-blur-md transition-colors duration-500 magnetic-element hover-target">
+        <div class="w-5 h-5 rounded-full border-2 border-transparent transition-transform hover:scale-125 cursor-pointer bg-[#f4f4f5] border-[#d4d4d8] theme-btn" data-set-theme="light"></div>
+        <div class="w-5 h-5 rounded-full border-2 border-transparent transition-transform hover:scale-125 cursor-pointer bg-[#27272a] border-[#52525b] theme-btn active" data-set-theme="dark"></div>
+        <div class="w-5 h-5 rounded-full border-2 border-transparent transition-transform hover:scale-125 cursor-pointer bg-[#000000] border-[#333333] theme-btn" data-set-theme="black"></div>
+    </div>
+    <div id="preloader" class="fixed inset-0 z-[10000] flex flex-col pointer-events-none">
+        <div class="preloader-panel panel-left absolute top-0 left-0 w-1/2 h-full"></div>
+        <div class="preloader-panel panel-right absolute top-0 right-0 w-1/2 h-full"></div>
+
+        <div class="loader-content absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[10001] w-[80vw] max-w-4xl flex flex-col items-center">
+            <div class="loader-counter text-[15vw] md:text-[8vw] font-bold text-accent leading-none mb-4 tracking-tighter">000</div>
+            <div class="w-full h-[2px] bg-borderline/30 relative overflow-hidden">
+                <div class="loader-line absolute top-0 left-0 h-full w-0 bg-accent"></div>
+            </div>
+        </div>
+    </div>
+
+    <main class="w-full">
+        <section class="min-h-[100svh] flex flex-col justify-center px-6 md:px-[5vw] relative overflow-hidden">
+            <h1 class="text-[clamp(4rem,12vw,12rem)] font-bold leading-[0.85] tracking-tighter uppercase z-10 text-primary">
+                <div class="overflow-hidden"><span class="hero-title-word inline-block translate-y-full">SYSTEMS</span></div>
+                <div class="overflow-hidden"><span class="hero-title-word inline-block translate-y-full">& LOGIC</span></div>
+            </h1>
+            <p class="hero-desc text-[clamp(1rem,2vw,1.5rem)] text-secondary max-w-2xl mt-8 opacity-0 z-10 transition-colors duration-500">
+                S4K — Full Stack Engineer crafting high-performance, complex digital ecosystems and minimalist architecture.
+            </p>
+        </section>
+
+        <!-- Always ON GSAP Section -->
+        <section class="h-[40vh] md:h-[50vh] border-y border-borderline relative overflow-hidden flex flex-col items-center justify-center transition-colors duration-500">
+            <h2 class="h2-heading relative z-10 text-[clamp(2rem,5vw,5rem)] font-bold text-primary text-center leading-tight pointer-events-none transition-colors duration-500">
+                ALWAYS RUNNING.<br>NEVER STOPPING.
+            </h2>
+            <div id="nodes-container" class="absolute inset-0 z-0">
+            </div>
+        </section>
+
+        <section class="py-[15vh] px-6 md:px-[5vw]">
+            <h2 class="text-sm md:text-base text-accent uppercase !text-[#1BA7BC] tracking-[0.2em] mb-12 md:mb-24 font-medium">Selected Architecture</h2>
+
+            <div class="flex flex-col gap-12 md:gap-[5vh] relative">
+
+                <div class="project-card sticky top-[10vh] md:top-[15vh] h-auto min-h-[50vh] md:h-[70vh] bg-surface border border-borderline rounded-3xl p-8 md:p-16 flex flex-col justify-center overflow-hidden shadow-2xl transition-colors duration-500 hover-target group">
+                    <div class="relative z-10 max-w-xl">
+                        <h2 class="text-[clamp(2.5rem,6vw,6rem)] font-bold mb-4 text-primary transition-colors duration-500">Crypto Page</h2>
+                        <p class="text-lg md:text-xl text-secondary transition-colors duration-500">Web-Based Logic & Cryptocurrency Payment Integration. Handled complex real-time state management.</p>
+                    </div>
+                    <div class="absolute top-1/2 right-8 md:right-[5vw] -translate-y-1/2 w-full md:w-[45%] h-[40%] md:h-[70%] rounded-2xl overflow-hidden opacity-20 md:opacity-100 mt-12 md:mt-0 z-0 pointer-events-none">
+                        <img src="https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1000&auto=format&fit=crop" alt="Crypto" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105">
+                    </div>
+                </div>
+
+                <div class="project-card sticky top-[12vh] md:top-[18vh] h-auto min-h-[50vh] md:h-[70vh] bg-surface border border-borderline rounded-3xl p-8 md:p-16 flex flex-col justify-center overflow-hidden shadow-2xl transition-colors duration-500 hover-target group">
+                    <div class="relative z-10 max-w-xl">
+                        <h2 class="text-[clamp(2.5rem,6vw,6rem)] font-bold mb-4 text-primary transition-colors duration-500">Admin Panel</h2>
+                        <p class="text-lg md:text-xl text-secondary transition-colors duration-500">Custom dashboard featuring advanced database routing, fluid pagination, and deep visual analytics.</p>
+                    </div>
+                    <div class="absolute top-1/2 right-8 md:right-[5vw] -translate-y-1/2 w-full md:w-[45%] h-[40%] md:h-[70%] rounded-2xl overflow-hidden opacity-20 md:opacity-100 mt-12 md:mt-0 z-0 pointer-events-none">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Dashboard" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105">
+                    </div>
+                </div>
+
+                <div class="project-card sticky top-[14vh] md:top-[21vh] h-auto min-h-[50vh] md:h-[70vh] bg-surface border border-borderline rounded-3xl p-8 md:p-16 flex flex-col justify-center overflow-hidden shadow-2xl transition-colors duration-500 hover-target group">
+                    <div class="relative z-10 max-w-xl">
+                        <h2 class="text-[clamp(2.5rem,6vw,6rem)] font-bold mb-4 text-primary transition-colors duration-500">REST API</h2>
+                        <p class="text-lg md:text-xl text-secondary transition-colors duration-500">Secure, high-throughput backend systems ensuring seamless data delivery across multiple frontend applications.</p>
+                    </div>
+                    <div class="absolute top-1/2 right-8 md:right-[5vw] -translate-y-1/2 w-full md:w-[45%] h-[40%] md:h-[70%] rounded-2xl overflow-hidden opacity-20 md:opacity-100 mt-12 md:mt-0 z-0 pointer-events-none">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" alt="API" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="py-[15vh] px-6 text-center flex flex-col items-center">
+            <h2 class="text-sm md:text-base text-accent uppercase !text-[#1BA7BC] tracking-[0.2em] mb-8 font-medium">Initiate Protocol</h2>
+            <a href="mailto:hello@s4k.dev" class="text-[clamp(2rem,6vw,5rem)] font-bold text-primary relative inline-block magnetic-btn magnetic-element hover-target transition-colors duration-500">
+                hello@s4k.dev
+            </a>
+
+            <div class="mt-16 flex flex-row gap-8 md:gap-16">
+                <a href="#" class="text-xl md:text-2xl font-medium text-secondary hover:text-accent transition-colors duration-300 magnetic-element hover-target">GitHub</a>
+                <a href="#" class="text-xl md:text-2xl font-medium text-secondary hover:text-accent transition-colors duration-300 magnetic-element hover-target">LinkedIn</a>
+                <a href="#" class="text-xl md:text-2xl font-medium text-secondary hover:text-accent transition-colors duration-300 magnetic-element hover-target">Twitter</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="backToTop" class="fixed bottom-[-100px] right-6 md:right-8 w-12 h-12 md:w-16 md:h-16 bg-surface border border-borderline text-accent rounded-full flex justify-center items-center z-50 transition-all duration-700 ease-in-out cursor-pointer hover-target magnetic-element hover:bg-accent hover:text-base shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M12 5.5l-6 6h4v7h4v-7h4z" />
+        </svg>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
